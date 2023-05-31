@@ -1,0 +1,28 @@
+version: '3.4'
+
+services:
+  school.ui:
+    image: ${DOCKER_REGISTRY-}schoolui:1.0.0
+    container_name: ui
+    build:
+      context: .
+      dockerfile: School.Ui/Dockerfile
+    depends_on:
+      - school.api
+
+  school.api:
+    image: ${DOCKER_REGISTRY-}schoolapi:1.0.0
+    container_name: api
+    build:
+      context: .
+      dockerfile: School.Api/Dockerfile
+    depends_on:
+      - school.db
+
+  school.db:
+    image: mcr.microsoft.com/mssql/server:2019-CU18-ubuntu-20.04
+    container_name: schooldb
+    restart: always
+    environment:
+        MSSQL_SA_PASSWORD: Passw0rd123!#
+        ACCEPT_EULA: "Y"

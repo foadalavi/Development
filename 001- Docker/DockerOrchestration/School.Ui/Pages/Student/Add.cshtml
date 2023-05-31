@@ -1,0 +1,26 @@
+﻿@page
+@model School.Ui.Pages.Student.AddModel
+@{
+}
+
+<form class="row g-3" method="post">
+    <div>
+        <div class="mb-3">
+            <label asp-for="Student.FirstName" class="form-label"></label>
+            <input asp-for="Student.FirstName" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Student.LastName" class="form-label"></label>
+            <input asp-for="Student.LastName" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Student.Address" class="form-label"></label>
+            <input asp-for="Student.Address" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Student.BirthDay" class="form-label"></label>
+            <input asp-for="Student.BirthDay" type="date" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary"> Add</button>
+    </div>
+</form>

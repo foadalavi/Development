@@ -1,0 +1,9 @@
+﻿FROM mcr.microsoft.com/dotnet/sdk:7.0
+WORKDIR /src
+COPY ["ConsoleApp/ConsoleApp.csproj", "ConsoleAppInsideDocker/"]
+RUN dotnet restore "ConsoleAppInsideDocker/ConsoleApp.csproj"
+COPY ./ConsoleApp ./ConsoleAppInsideDocker
+WORKDIR "/src/ConsoleAppInsideDocker"
+RUN dotnet publish "ConsoleApp.csproj" -c Release -o /src/publish /p:UseAppHost=false
+WORKDIR /src/publish
+ENTRYPOINT ["dotnet", "ConsoleApp.dll"]

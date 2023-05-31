@@ -1,0 +1,33 @@
+﻿@page
+@model School.Ui.Pages.Student.IndexModel
+@{
+}
+
+<table class="table table-striped">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birthday</th>
+        <th>Address</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.Students)
+    {
+
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.BirthDay.ToShortDateString()</td>
+            <td>@item.Address</td>
+            <td>
+                <a class="btn btn-secondary" asp-page="edit" asp-route-id="@item.StudentId">Edit</a>
+                <form method="post" asp-page="/student/delete" asp-route-id="@item.StudentId">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    <tr>
+    </tr>
+</table>
+

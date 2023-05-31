@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  school.ui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ServersBaseUrl__Api=http://school.api
+    ports:
+      - "8080:80"
+  school.api:
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=schooldb;Database=School;User Id=sa;Password=Passw0rd123!#;TrustServerCertificate=True;
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "8081:80"
+
+  school.db:
+    ports:
+      - "1433:1433"
