@@ -5,14 +5,14 @@
 ```
 ### Publish Command:
 ```
-dotnet publish /t:PublishContainer
+dotnet publish --os linux --arch x64 -c Release /t:PublishContainer
 ```
 
 
 # For web application
 ### Publish Command:
 ```
-dotnet publish /p:PublishProfile=DefaultContainer
+dotnet publish --os linux --arch x64 -c Release /p:PublishProfile=DefaultContainer
 ```
 
 # Other Settings
