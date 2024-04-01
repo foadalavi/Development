@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Librarian.Domain\Librarian.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Features\Member\Queries\GetAllMembers\" />
+		<Folder Include="Features\Member\Queries\GetMemebrDetails\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" />
+		<PackageReference Include="FluentValidation" />
+		<PackageReference Include="MediatR" />
+	</ItemGroup>
+
+</Project>
